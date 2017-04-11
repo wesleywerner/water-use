@@ -174,12 +174,12 @@ var app = new Vue({
     grandTotal: 0,
     displayFactorOptions: [
       { 
-        'text': 'Small 1 litre bottles',
+        'text': '1 litre bottles',
         'value': 1,
         'icon': 'https://openclipart.org/image/32px/svg_to_png/193719/1401026670.png&disposition=attachment'
       },
       { 
-        'text': 'Large 5 litre bottles',
+        'text': '5 litre bottles',
         'value': 5,
         'icon': 'https://openclipart.org/image/32px/svg_to_png/4813/jonata-Water-bottle.png&disposition=attachment'
       }

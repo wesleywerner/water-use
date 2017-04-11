@@ -100,10 +100,10 @@
 
       <div class="five columns u-pull-right">
         <span>Show as </span>
+        <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; top:10px;" />
         <select v-model="displayFactor">
           <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
         </select>
-        <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; left:30px; top:10px;" />
       </div>
     </div>
     
