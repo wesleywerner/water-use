@@ -13,6 +13,12 @@ footer {
   color: white;
 }
 
+hr {
+  border: 0 !important;
+  background-color: cyan;
+  height: 2px !important;
+}
+
 .parallax {
   background-image: url(/images/artistic_splash_by_omar_bariffi.jpg);
   min-height: 100%;
