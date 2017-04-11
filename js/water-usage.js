@@ -25,6 +25,142 @@ var blueprint = [
           "title": "glasses of orange/apple juice",
           "period": 7,
           "litres": 170
+        },
+        {
+          "title": "Glasses of beer (250ml)",
+          "period": 7,
+          "litres": 74
+        },
+        {
+          "title": "Glasses of wine (250ml)",
+          "period": 7,
+          "litres": 109
+        }
+      ]
+    },
+    {
+      "name": "Food",
+      "entries": [
+        {
+          "title": "slices of bread",
+          "period": 7,
+          "litres": 135
+        },
+        {
+          "title": "potatoes",
+          "period": 7,
+          "litres": 25,
+          "options": [
+            { 'text': 'Small (100g)', 'ratio': 1 },
+            { 'text': 'Medium (140-225g)', 'ratio': 1.5 },
+            { 'text': 'Large (225-340g)', 'ratio': 2.5 }
+          ]
+        },
+        {
+          "title": "Bananas (120g)",
+          "period": 7,
+          "litres": 94.8
+        },
+        {
+          "title": "Cheese portions",
+          "period": 7,
+          "litres": 318,
+          "options": [
+            { 'text': 'Fistful (60g)', 'ratio': 0.6 },
+            { 'text': 'Half a cup (100g)', 'ratio': 1 },
+            { 'text': 'Full cup (200g)', 'ratio': 2 }
+          ]
+        },
+        {
+          "title": "Chocolate",
+          "period": 7,
+          "litres": 1719,
+          "options": [
+            { "text": "Tiny serving (20g, a couple pieces)", "ratio": 0.2 },
+            { "text": "Medium serving (50g, half a slab)", "ratio": 0.5 },
+            { "text": "Large serving (100g, a slab of Lindt)", "ratio": 1 },
+            { "text": "Huge serving (200g)", "ratio": 2 }
+          ]
+        },
+        {
+          "title": "Pizza",
+          "period": 7,
+          "litres": 1239
+        },
+        {
+          "title": "Pasta",
+          "period": 7,
+          "litres": 185,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (130g)", "ratio": 1.3 }
+          ]
+        },
+        {
+          "title": "Rice",
+          "period": 7,
+          "litres": 245,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (130g)", "ratio": 1.3 }
+          ]
+        },
+        {
+          "title": "Chicken",
+          "period": 7,
+          "litres": 432,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (170g)", "ratio": 1.7 }
+          ]
+        },
+        {
+          "title": "Pork",
+          "period": 7,
+          "litres": 598,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (170g)", "ratio": 1.7 }
+          ]
+        },
+        {
+          "title": "Mutton",
+          "period": 7,
+          "litres": 1041,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (170g)", "ratio": 1.7 }
+          ]
+        },
+        {
+          "title": "Beef",
+          "period": 7,
+          "litres": 1541,
+          "options": [
+            { "text": "Normal serving (100g)", "ratio": 1 },
+            { "text": "Smaller serving (60g)", "ratio": 0.6 },
+            { "text": "Larger serving (170g)", "ratio": 1.7 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outside",
+      "entries": [
+        {
+          "title": "minutes water the garden",
+          "period": 7,
+          "litres": 5,
+          "options": [
+            { 'text': 'Small Garden', 'ratio': 0.5 },
+            { 'text': 'Medium Garden', 'ratio': 1 },
+            { 'text': 'Large Garden', 'ratio': 2 }
+          ]
         }
       ]
     }
