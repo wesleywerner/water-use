@@ -1,0 +1,51 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: linear-gradient(-90deg, #3399FF, #0066CC, #3399FF);
+}
+
+footer {
+  margin-top: 300px;
+  min-height: 100px;
+  background: black;
+  padding: 30px;
+  color: white;
+}
+
+hr {
+  border: 0 !important;
+  background-color: cyan;
+  height: 2px !important;
+}
+
+.parallax {
+  background-image: url(/images/artistic_splash_by_omar_bariffi.jpg);
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding-top: 10%;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+#app label {
+  font-size: 1.2em;
+  color: white;
+}
+
+#app h1, #app h2, #app h3, #app span {
+  color: white;
+}
+
+
+.parallax p {
+  font-size: 2em;
+}

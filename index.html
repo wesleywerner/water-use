@@ -1,0 +1,161 @@
+<!--
+   index.html
+   
+   Copyright 2017 wesley werner <wesley.werner@gmail.com>
+   
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program. If not, see http://www.gnu.org/licenses/.
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <title>Water Use</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="generator" content="Geany 1.24.1" />
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="css/water-usage.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+</head>
+
+<body>
+  
+  <div class="parallax">
+    <h1>How much water?</h1>
+    <p>There are many things in your daily activities that use more water than you think.</p>
+    <p>Much of this water is used to produce your food and beverages.</p>
+    <button class="button-primary" onclick="app.scrollToContent()">Find Out More</button>
+  </div>
+
+  <div id="app" class="container">
+
+    <div v-for="category in categories">
+
+      <h3 v-show="category.visible">{{ category.name }}</h3>
+
+      <div v-for="entry in category.entries">
+
+        <transition enter-active-class="animated lightSpeedIn">
+          
+          <div v-show="entry.visible">
+            
+            <div class="row">
+              
+              <div class="four columns">
+
+                <label>
+                  {{ entry.title }} {{ entry.period == 1 ? 'per day' : 'per week' }}
+                </label>
+
+                <input type="number" min="0" max="50" v-model="entry.qty">
+
+                <select v-model="entry.ratio" v-show="entry.options">
+                  <option v-for="option in entry.options"
+                    v-bind:value="option.ratio">{{ option.text }}</option>
+                </select>
+
+              </div>  <!-- /col -->
+              <div class="eight columns">
+
+                <transition-group 
+                  enter-active-class="animated fadeIn"
+                  leave-active-class="animated fadeOut">
+                  <span v-for="n in entry.representativeTotal" v-bind:key="n">
+                    <img v-bind:src="displayFactor.icon" 
+                         v-bind:title="entry.total + ' litres per day, or ' + entry.representativeTotal + ' ' + displayFactor.text" />
+                  </span>
+                </transition-group>
+            
+              </div>  <!-- /col -->
+            </div>  <!-- /row -->
+
+            <hr/>
+            
+          </div>
+          
+        </transition>
+        
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="three columns">
+        <button id="nextButton" class="button-primary" v-on:click="next">Next</button>
+      </div>
+
+      <div class="five columns u-pull-right">
+        <span>Show as </span>
+        <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; top:10px;" />
+        <select v-model="displayFactor">
+          <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div id="results" v-show="allAnswered">
+      <hr/>
+      <h1>Your Water Use</h1>
+      <h3>You use {{ grandTotal }} litres of water per day</h3>
+    </div>
+
+  </div>
+  
+  <footer>
+    <div class="row">
+      
+      <div class="six columns">
+        <ul>
+          <li>
+            Website created by <a href="https://wesleywerner.com/" target="_blank">Wesley Werner</a>
+          </li>
+          <li>
+            Artistic Splash image by <a href="https://flic.kr/p/c4NxbS" target="_blank">Omar Bariffi</a>
+          </li>
+          <li>
+            Small Water bottle icon by <a href="https://openclipart.org/detail/193719/water-bottle" target="_blank">Onsemeliot</a>
+          </li>
+          <li>
+            Large Water bottle icon by <a href="https://openclipart.org/detail/4813/water-bottle" target="_blank">jonata</a>
+          </li>
+          <li>
+            Source code for <a href="https://github.com/wesleywerner/water-use" target="_blank">this site</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="six columns">
+        <strong>Sources</strong>
+        <ul>
+          <li>
+            <a href="http://www.igd.com/our-expertise/Sustainability/Water/3509/Embedded-Water-in-Food-Production/" target="_blank">Embedded water in food production</a>
+          </li>
+          <li>
+            <a href="https://www.theguardian.com/news/datablog/2013/jan/10/how-much-water-food-production-waste" target="_blank">Water food production waste</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+  <script src="js/water-usage.js"></script>
+
+</body>
+
+</html>
