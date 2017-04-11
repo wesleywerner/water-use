@@ -44,6 +44,8 @@
 
       <div v-for="entry in category.entries">
 
+        <transition enter-active-class="animated lightSpeedIn">
+          
           <div v-show="entry.visible">
 
             <label>
@@ -64,6 +66,8 @@
 
           </div>
           
+        </transition>
+        
       </div>
 
     </div>
@@ -73,8 +77,8 @@
 
   </div>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-    <script src="js/water-usage.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+  <script src="js/water-usage.js"></script>
 
 </body>
 
