@@ -33,11 +33,15 @@
 </head>
 
 <body>
+  
+  <div class="parallax">
+    <h1>How much water?</h1>
+    <p>There are many things in your daily activities that use more water than you think.</p>
+    <button class="button-primary" onclick="app.scrollToContent()">Find Out More</button>
+  </div>
 
   <div id="app" class="container">
 
-    <h1>How much water?</h1>
-    
     <label>Represent my water usage as </label>
     <select v-model="displayFactor">
       <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
