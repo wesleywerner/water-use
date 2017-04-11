@@ -60,9 +60,14 @@
             </select>
 
             <div>Total: {{ Math.round( entry.total / displayFactor ) }}</div>
-            <span v-for="n in Math.round( entry.total / displayFactor )">
-              *
-            </span>
+            
+            <transition-group 
+              enter-active-class="animated fadeIn"
+              leave-active-class="animated fadeOut">
+              <span v-for="n in Math.round( entry.total / displayFactor )" v-bind:key="n">
+                *
+              </span>
+            </transition-group>
 
           </div>
           
