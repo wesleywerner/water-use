@@ -5,8 +5,17 @@ html, body {
   background: linear-gradient(-90deg, #99CCFF, #99FFFF, #99CCFF);
 }
 
+footer {
+  margin-top: 300px;
+  min-height: 100px;
+  background: black;
+  padding: 30px;
+  color: white;
+}
+
 .parallax {
-  min-height: 100%; 
+  background-image: url(/images/artistic_splash_by_omar_bariffi.jpg);
+  min-height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
