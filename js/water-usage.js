@@ -122,7 +122,6 @@ var app = new Vue({
     
     scrollToContent: function() {
       var el = document.getElementById('app');
-      console.log(el);
       if (el) el.scrollIntoView({block: 'start', behavior: 'smooth'});
     }
     

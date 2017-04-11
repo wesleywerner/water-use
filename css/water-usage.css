@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  background: linear-gradient(-90deg, #99CCFF, #99FFFF, #99CCFF);
+  background: linear-gradient(-90deg, #3399FF, #0066CC, #3399FF);
 }
 
 footer {
@@ -27,7 +27,16 @@ footer {
   -1px -1px 0 #000,
   1px -1px 0 #000,
   -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  1px 1px 0 #000;
+}
+
+#app label {
+  font-size: 1.2em;
+  color: white;
+}
+
+#app h1, #app h2, #app h3 {
+  color: white;
 }
 
 .parallax p {
