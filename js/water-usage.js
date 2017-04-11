@@ -106,6 +106,11 @@ var app = new Vue({
               if (!entry.visible) {
                 done = true;
                 entry.visible = true;
+                // scroll the entry into view
+                setTimeout(function() {
+                  var el = document.getElementById('nextButton');
+                  if (el) el.scrollIntoView({block: 'start', behavior: 'smooth'});
+                },2000);
               }
             }
           });
