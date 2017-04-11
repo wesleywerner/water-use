@@ -43,12 +43,6 @@
 
   <div id="app" class="container">
 
-    <h2>Represent my water usage as </h2>
-    <select v-model="displayFactor">
-      <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
-    </select>
-    <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; left:30px; top:10px;" />
-
     <div v-for="category in categories">
 
       <h3 v-show="category.visible">{{ category.name }}</h3>
@@ -82,7 +76,7 @@
                   leave-active-class="animated fadeOut">
                   <span v-for="n in entry.representativeTotal" v-bind:key="n">
                     <img v-bind:src="displayFactor.icon" 
-                         v-bind:title="entry.representativeTotal + ' ' + displayFactor.text" />
+                         v-bind:title="entry.total + ' litres per day, or ' + entry.representativeTotal + ' ' + displayFactor.text" />
                   </span>
                 </transition-group>
             
@@ -99,7 +93,19 @@
 
     </div>
 
-    <button id="nextButton" class="button-primary" v-on:click="next">Next</button>
+    <div class="row">
+      <div class="three columns">
+        <button id="nextButton" class="button-primary" v-on:click="next">Next</button>
+      </div>
+
+      <div class="five columns u-pull-right">
+        <span>Show as </span>
+        <select v-model="displayFactor">
+          <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
+        </select>
+        <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; left:30px; top:10px;" />
+      </div>
+    </div>
     
     <div id="results" v-show="allAnswered">
       <hr/>

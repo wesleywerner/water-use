@@ -41,9 +41,10 @@ hr {
   color: white;
 }
 
-#app h1, #app h2, #app h3 {
+#app h1, #app h2, #app h3, #app span {
   color: white;
 }
+
 
 .parallax p {
   font-size: 2em;
