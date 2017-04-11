@@ -37,15 +37,17 @@
   <div class="parallax">
     <h1>How much water?</h1>
     <p>There are many things in your daily activities that use more water than you think.</p>
+    <p>Much of this water is used to produce your food and beverages.</p>
     <button class="button-primary" onclick="app.scrollToContent()">Find Out More</button>
   </div>
 
   <div id="app" class="container">
 
-    <label>Represent my water usage as </label>
+    <h2>Represent my water usage as </h2>
     <select v-model="displayFactor">
       <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
     </select>
+    <img v-if="displayFactor" v-bind:src="displayFactor.icon" style="position:relative; left:30px; top:10px;" />
 
     <div v-for="category in categories">
 
@@ -98,7 +100,12 @@
     </div>
 
     <button id="nextButton" class="button-primary" v-on:click="next">Next</button>
-    <h1 v-show="allAnswered">All Done</h1>
+    
+    <div id="results" v-show="allAnswered">
+      <hr/>
+      <h1>Your Water Use</h1>
+      <h3>You use n litres of water per day</h3>
+    </div>
 
   </div>
   

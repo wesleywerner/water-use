@@ -45,11 +45,6 @@ var app = new Vue({
         'text': 'Large 5 litre bottles',
         'value': 5,
         'icon': 'https://openclipart.org/image/32px/svg_to_png/4813/jonata-Water-bottle.png&disposition=attachment'
-      },
-      { 
-        'text': 'Barrels 160 litre',
-        'value': 160,
-        'icon': 'https://openclipart.org/image/32px/svg_to_png/1337/liftarn-Large-barrel.png&disposition=attachment'
       }
     ],
     displayFactor: null
@@ -109,13 +104,20 @@ var app = new Vue({
                 // scroll the entry into view
                 setTimeout(function() {
                   var el = document.getElementById('nextButton');
-                  if (el) el.scrollIntoView({block: 'start', behavior: 'smooth'});
-                },2000);
+                  if (el) el.scrollIntoView({block: 'end', behavior: 'smooth'});
+                },1000);
               }
             }
           });
         }
       });
+      
+      // scroll to the results section
+      setTimeout(function() {
+        var el = document.getElementById('results');
+        if (el) el.scrollIntoView({block: 'start', behavior: 'smooth'});
+      },1000);
+
       // all entries are now visible (none were marked as done)
       this.allAnswered = !done;
     },
