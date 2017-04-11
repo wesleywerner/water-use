@@ -32,6 +32,11 @@
 <body>
 
   <div id="app">
+
+    <select v-model="displayFactor">
+      <option value="1">1 litre bottle</option>
+      <option value="5">5 litre can</option>
+    </select>
     
     <div v-for="category in categories">
 
@@ -52,7 +57,10 @@
                 v-bind:value="option.ratio">{{ option.text }}</option>
             </select>
 
-            <div>Total: {{ entry.total }}</div>
+            <div>Total: {{ entry.total / displayFactor }}</div>
+            <span v-for="n in (entry.total / displayFactor)">
+              *
+            </span>
 
           </div>
 

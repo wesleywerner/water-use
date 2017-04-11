@@ -33,7 +33,8 @@ var blueprint = [
 var app = new Vue({
   el: '#app',
   data: {
-    categories: []
+    categories: [],
+    displayFactor: 1
   },
   methods: {
     
@@ -67,7 +68,9 @@ var app = new Vue({
   },
   
   watch: {
-
+    displayFactor: function() {
+      this.calculate();
+    }
   },
   
   computed: {
