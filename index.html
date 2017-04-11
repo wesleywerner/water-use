@@ -33,9 +33,9 @@
 
   <div id="app">
     
+    <label>Represent my water usage as </label>
     <select v-model="displayFactor">
-      <option value="1">1 litre bottle</option>
-      <option value="5">5 litre can</option>
+      <option v-for="opt in displayFactorOptions" v-bind:value="opt">{{ opt.text }}</option>
     </select>
 
     <div v-for="category in categories">
@@ -59,13 +59,14 @@
                 v-bind:value="option.ratio">{{ option.text }}</option>
             </select>
 
-            <div>Total: {{ Math.round( entry.total / displayFactor ) }}</div>
-            
+            <div>Total: {{ entry.representativeTotal }}</div>
+
             <transition-group 
               enter-active-class="animated fadeIn"
               leave-active-class="animated fadeOut">
-              <span v-for="n in Math.round( entry.total / displayFactor )" v-bind:key="n">
-                *
+              <span v-for="n in entry.representativeTotal" v-bind:key="n">
+                <img v-bind:src="displayFactor.icon" 
+                     v-bind:title="entry.representativeTotal + ' ' + displayFactor.text" />
               </span>
             </transition-group>
 

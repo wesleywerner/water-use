@@ -35,13 +35,31 @@ var app = new Vue({
   data: {
     categories: [],
     allAnswered: false,
-    displayFactor: 1
+    displayFactorOptions: [
+      { 
+        'text': 'Small 1 litre bottles',
+        'value': 1,
+        'icon': 'https://openclipart.org/image/32px/svg_to_png/193719/1401026670.png&disposition=attachment'
+      },
+      { 
+        'text': 'Large 5 litre bottles',
+        'value': 5,
+        'icon': 'https://openclipart.org/image/32px/svg_to_png/4813/jonata-Water-bottle.png&disposition=attachment'
+      },
+      { 
+        'text': 'Barrels 160 litre',
+        'value': 160,
+        'icon': 'https://openclipart.org/image/32px/svg_to_png/1337/liftarn-Large-barrel.png&disposition=attachment'
+      }
+    ],
+    displayFactor: null
   },
   methods: {
     
     reset: function() {
       // reset states
       this.allAnswered = false;
+      this.displayFactor = this.displayFactorOptions[0];
       // clone blueprint
       var bp = JSON.parse(JSON.stringify(blueprint));
       // add extra attributes
@@ -50,6 +68,7 @@ var app = new Vue({
         category.entries.forEach(function(entry, entryIndex) {
           entry.qty = 0;
           entry.total = 0;
+          entry.representativeTotal = 0;
           entry.ratio = entry.ratio || 1;
           entry.visible = (catIndex == 0 && entryIndex == 0);
         });
@@ -63,9 +82,13 @@ var app = new Vue({
       // where  qty is user entered
       //        period is days divisor
       //        ratio adjusts the base litres by user selected option
+      var that = this;
       this.categories.forEach(function(category) {
         category.entries.forEach(function(entry) {
           entry.total = Math.round( (entry.qty / entry.period) * (entry.litres * entry.ratio) );
+          // the representative total is divided by the display factor value
+          entry.representativeTotal = Math.round( entry.total / that.displayFactor.value );
+          
         });
       });
     },
