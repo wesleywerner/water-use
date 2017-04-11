@@ -32,19 +32,19 @@
 <body>
 
   <div id="app">
-
+    
     <select v-model="displayFactor">
       <option value="1">1 litre bottle</option>
       <option value="5">5 litre can</option>
     </select>
-    
+
     <div v-for="category in categories">
 
-      <h3>{{ category.name }}</h3>
+      <h3 v-show="category.visible">{{ category.name }}</h3>
 
       <div v-for="entry in category.entries">
 
-          <div>
+          <div v-show="entry.visible">
 
             <label>
               {{ entry.title }} {{ entry.period == 1 ? 'per day' : 'per week' }}
@@ -57,18 +57,19 @@
                 v-bind:value="option.ratio">{{ option.text }}</option>
             </select>
 
-            <div>Total: {{ entry.total / displayFactor }}</div>
-            <span v-for="n in (entry.total / displayFactor)">
+            <div>Total: {{ Math.round( entry.total / displayFactor ) }}</div>
+            <span v-for="n in Math.round( entry.total / displayFactor )">
               *
             </span>
 
           </div>
-
+          
       </div>
 
     </div>
 
-    <button v-on:click="calculate">Calculate</button>
+    <button v-on:click="next">Next</button>
+    <h1 v-show="allAnswered">All Done</h1>
 
   </div>
 
