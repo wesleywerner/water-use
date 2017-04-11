@@ -35,6 +35,7 @@ var app = new Vue({
   data: {
     categories: [],
     allAnswered: false,
+    grandTotal: 0,
     displayFactorOptions: [
       { 
         'text': 'Small 1 litre bottles',
@@ -77,13 +78,14 @@ var app = new Vue({
       // where  qty is user entered
       //        period is days divisor
       //        ratio adjusts the base litres by user selected option
+      this.grandTotal = 0;
       var that = this;
       this.categories.forEach(function(category) {
         category.entries.forEach(function(entry) {
           entry.total = Math.round( (entry.qty / entry.period) * (entry.litres * entry.ratio) );
           // the representative total is divided by the display factor value
           entry.representativeTotal = Math.round( entry.total / that.displayFactor.value );
-          
+          that.grandTotal += entry.total;
         });
       });
     },
