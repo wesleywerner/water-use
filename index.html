@@ -61,7 +61,7 @@
                   {{ entry.title }} {{ entry.period == 1 ? 'per day' : 'per week' }}
                 </label>
 
-                <input type="number" v-model="entry.qty">
+                <input type="number" min="0" max="50" v-model="entry.qty">
 
                 <select v-model="entry.ratio" v-show="entry.options">
                   <option v-for="option in entry.options"

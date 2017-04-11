@@ -218,10 +218,12 @@ var app = new Vue({
       var that = this;
       this.categories.forEach(function(category) {
         category.entries.forEach(function(entry) {
-          entry.total = Math.round( (entry.qty / entry.period) * (entry.litres * entry.ratio) );
-          // the representative total is divided by the display factor value
-          entry.representativeTotal = Math.round( entry.total / that.displayFactor.value );
-          that.grandTotal += entry.total;
+          if (entry.qty > 0) {
+            entry.total = Math.round( (entry.qty / entry.period) * (entry.litres * entry.ratio) );
+            // the representative total is divided by the display factor value
+            entry.representativeTotal = Math.round( entry.total / that.displayFactor.value );
+            that.grandTotal += entry.total;
+          }
         });
       });
     },
