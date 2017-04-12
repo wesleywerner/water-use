@@ -67,7 +67,7 @@
                 <input type="number" min="0" max="50" v-model="entry.qty">
 -->
 
-                <select v-model="entry.ratio" v-show="entry.options">
+                <select v-model="entry.ratio" v-show="entry.options" onchange="setTimeout(app.calculate, 500)">
                   <option v-for="option in entry.options"
                     v-bind:value="option.ratio">{{ option.text }}</option>
                 </select>
