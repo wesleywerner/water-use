@@ -218,7 +218,7 @@ var app = new Vue({
       var that = this;
       this.categories.forEach(function(category) {
         category.entries.forEach(function(entry) {
-          if (entry.qty > 0) {
+          if (entry.qty >= 0) {
             entry.total = Math.round( (entry.qty / entry.period) * (entry.litres * entry.ratio) );
             // the representative total is divided by the display factor value
             entry.representativeTotal = Math.round( entry.total / that.displayFactor.value );
@@ -277,7 +277,44 @@ var app = new Vue({
   
   computed: {
     
+  },
+  
+  components: {
+    
+    'easy-adder': {
+      
+      props: ['value'],
+      
+      template: '<span><button class="button-primary" v-on:click="increase" style="font-size: 2em">+</button><span style="font-size: 2em"> {{ counter }} </span><button class="button-primary" v-on:click="decrease" style="font-size: 2em">-</button></span>',
+      
+      data: function() {
+        return {
+          counter: 0
+        }
+      },
+      
+      methods: {
+      
+        increase: function() {
+          this.counter++;
+          this.$emit('input', this.counter);
+          this.$emit('recalculate');
+        },
+
+        decrease: function() {
+          if (this.counter > 0) {
+            this.counter--;
+            this.$emit('input', this.counter);
+            this.$emit('recalculate');
+          }
+        }
+        
+      }
+      
+    }
+    
   }
+  
 });
 
 app.reset();
