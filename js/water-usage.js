@@ -242,10 +242,10 @@ var app = new Vue({
                 done = true;
                 entry.visible = true;
                 // scroll the entry into view
-                setTimeout(function() {
-                  var el = document.getElementById('nextButton');
-                  if (el) el.scrollIntoView({block: 'end', behavior: 'smooth'});
-                },1000);
+                //setTimeout(function() {
+                //  var el = document.getElementById('nextButton');
+                //  if (el) el.scrollIntoView({block: 'end', behavior: 'smooth'});
+                //},1000);
               }
             }
           });
