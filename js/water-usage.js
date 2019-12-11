@@ -176,12 +176,12 @@ var app = new Vue({
       {
         'text': '1 litre bottles',
         'value': 1,
-        'icon': '/res/1lbottle.png'
+        'icon': 'res/1lbottle.png'
       },
       {
         'text': '5 litre bottles',
         'value': 5,
-        'icon': '/res/5lbottle.png'
+        'icon': 'res/5lbottle.png'
       }
     ],
     displayFactor: null
