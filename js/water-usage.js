@@ -173,21 +173,21 @@ var app = new Vue({
     allAnswered: false,
     grandTotal: 0,
     displayFactorOptions: [
-      { 
+      {
         'text': '1 litre bottles',
         'value': 1,
-        'icon': 'https://openclipart.org/image/32px/svg_to_png/193719/1401026670.png&disposition=attachment'
+        'icon': '/res/1lbottle.png'
       },
-      { 
+      {
         'text': '5 litre bottles',
         'value': 5,
-        'icon': 'https://openclipart.org/image/32px/svg_to_png/4813/jonata-Water-bottle.png&disposition=attachment'
+        'icon': '/res/5lbottle.png'
       }
     ],
     displayFactor: null
   },
   methods: {
-    
+
     reset: function() {
       // reset states
       this.allAnswered = false;
@@ -207,7 +207,7 @@ var app = new Vue({
       });
       this.categories = bp;
     },
-    
+
     calculate: function() {
       // calculate usage for each entry as
       // (qty / period) * (litres * ratio)
@@ -227,7 +227,7 @@ var app = new Vue({
         });
       });
     },
-    
+
     next: function() {
       // recalculate usage
       this.calculate();
@@ -251,7 +251,7 @@ var app = new Vue({
           });
         }
       });
-      
+
       // scroll to the results section
       setTimeout(function() {
         var el = document.getElementById('results');
@@ -261,40 +261,40 @@ var app = new Vue({
       // all entries are now visible (none were marked as done)
       this.allAnswered = !done;
     },
-    
+
     scrollToContent: function() {
       var el = document.getElementById('app');
       if (el) el.scrollIntoView({block: 'start', behavior: 'smooth'});
     }
-    
+
   },
-  
+
   watch: {
     displayFactor: function() {
       this.calculate();
     }
   },
-  
+
   computed: {
-    
+
   },
-  
+
   components: {
-    
+
     'easy-adder': {
-      
+
       props: ['value'],
-      
+
       template: '<span><button class="button-primary" v-on:click="increase" style="font-size: 2em">+</button><span style="font-size: 2em"> {{ counter }} </span><button class="button-primary" v-on:click="decrease" style="font-size: 2em">-</button></span>',
-      
+
       data: function() {
         return {
           counter: 0
         }
       },
-      
+
       methods: {
-      
+
         increase: function() {
           this.counter++;
           this.$emit('input', this.counter);
@@ -308,13 +308,13 @@ var app = new Vue({
             this.$emit('recalculate');
           }
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
 });
 
 app.reset();
